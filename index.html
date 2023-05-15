@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="logo">SUA LOGO AQUI</div>
+        <form id="enviarForm">
+            <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+            <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+            <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" placeholder="(00) 0 0000-0000" required>
+            <label for="assunto">Assunto</label>
+                <select id="assunto">
+                    <option disabled selected>Escolha um assunto</option>
+                    <option>Abrir um chamado</option>
+                    <option>Emissão de segunda via</option>
+                    <option>Ouvidoria</option>
+                </select>
+            <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem"></textarea>
+
+                <Button type="submit">
+                    <span>Enviar</span>
+
+                </Button>
+        </form>
+    </div>
+    <div id="h6">
+        <h6>&copy; 2023 Todos os direitos reservados</h6>
+    </div>
+    <script>
+        enviarForm.onsubmit = function(){
+            event.preventDefault();
+            window.location.href = `https://api.whatsapp.com/send?phone=0000000000000&text=Ol%C3%A1,%20eu%20sou%0ANome:%20${nome.value}%0AEmail:%20${email.value}%0ATelefone:%20${telefone.value}%0A%0AGostaria%20de%20falar%20sobre%0AAssunto:%20${assunto.value}%0AMensagem:%20${mensagem.value}`;
+        }
+    </script>
+</body>
+</html>
